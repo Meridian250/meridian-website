@@ -893,7 +893,7 @@
 -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  emailjs.init('YOUR_PUBLIC_KEY');
+  emailjs.init('Fx2B3bjYlhqXGR4zy');
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -912,7 +912,7 @@
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
+    emailjs.send('service_xms76qk', 'template_1uyk7fn', params)
       .then(() => {
         btn.textContent = 'Sent — we\'ll be in touch shortly';
         btn.style.background = '#1D9E75';

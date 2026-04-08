@@ -804,7 +804,7 @@
           <span>United Kingdom</span>
         </div>
       </div>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <form class="contact-form" id="contact-form">
         <div class="form-row">
           <div class="form-group">
             <label>Full name</label>
@@ -909,3 +909,4 @@
     document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
   });
 });
+document.getElementById('contact-form').addEventListener('submit', handleSubmit);

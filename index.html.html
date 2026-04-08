@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Distributors — Premium UK Health Supplements</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1a2e42;
+    --navy-light: #243b55;
+    --gold: #c9a96e;
+    --gold-light: #e0c898;
+    --cream: #f5f0e8;
+    --cream-dark: #ede6d6;
+    --white: #ffffff;
+    --text-light: rgba(245,240,232,0.7);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--navy);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: rgba(13,27,42,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    color: var(--cream);
+    font-weight: 300;
+  }
+
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy) !important;
+    background: var(--gold);
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 70% 50%, rgba(36,59,85,0.6) 0%, transparent 70%),
+      linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
+  }
+
+  .hero-line {
+    position: absolute;
+    top: 0; bottom: 0; right: 38%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(201,169,110,0.3) 30%, rgba(201,169,110,0.3) 70%, transparent);
+  }
+
+  .hero-content {
+    position: relative; z-index: 1;
+    max-width: 640px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 2rem; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1rem; align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--cream); }
+
+  .btn-ghost::after {
+    content: '→';
+    transition: transform 0.2s;
+  }
+
+  .btn-ghost:hover::after { transform: translateX(4px); }
+
+  /* STATS STRIP */
+  .stats {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(201,169,110,0.15);
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .stat {
+    padding: 2rem 3rem;
+    border-right: 1px solid rgba(201,169,110,0.12);
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  /* ABOUT */
+  .section {
+    padding: 6rem 4rem;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: block; width: 1.5rem; height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+  }
+
+  .about-features {
+    display: flex; flex-direction: column; gap: 1.5rem;
+  }
+
+  .feature {
+    padding: 1.5rem;
+    border: 1px solid rgba(201,169,110,0.15);
+    border-radius: 2px;
+    background: rgba(255,255,255,0.02);
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .feature:hover {
+    border-color: rgba(201,169,110,0.35);
+    background: rgba(201,169,110,0.04);
+  }
+
+  .feature-title {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .feature p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    font-weight: 300;
+  }
+
+  /* PRODUCTS */
+  .products-bg {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(201,169,110,0.1);
+    border-bottom: 1px solid rgba(201,169,110,0.1);
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .product-card {
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(201,169,110,0.15);
+    border-radius: 2px;
+    background: rgba(13,27,42,0.5);
+    transition: border-color 0.25s, transform 0.25s;
+    cursor: default;
+  }
+
+  .product-card:hover {
+    border-color: rgba(201,169,110,0.4);
+    transform: translateY(-3px);
+  }
+
+  .product-icon {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .product-icon svg {
+    width: 16px; height: 16px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .product-card h3 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+  }
+
+  .product-card p {
+    font-size: 0.83rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    font-weight: 300;
+  }
+
+  .product-brands {
+    margin-top: 1rem;
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+  }
+
+  .brand-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201,169,110,0.1);
+    border: 1px solid rgba(201,169,110,0.2);
+    padding: 0.2rem 0.6rem;
+    border-radius: 1px;
+  }
+
+  /* MARKETS */
+  .markets-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .market-card {
+    padding: 2.5rem;
+    border: 1px solid rgba(201,169,110,0.12);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .market-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold), transparent);
+  }
+
+  .market-flag {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .market-card h3 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .market-card p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    font-weight: 300;
+  }
+
+  /* PROCESS */
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 3rem;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 1.5rem; left: 3rem; right: 3rem;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201,169,110,0.3), transparent);
+  }
+
+  .step {
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  .step-num {
+    width: 3rem; height: 3rem;
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--gold);
+    background: var(--navy);
+    position: relative; z-index: 1;
+  }
+
+  .step h4 {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+  }
+
+  .step p {
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    font-weight: 300;
+  }
+
+  /* CONTACT */
+  .contact-bg {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(201,169,110,0.12);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .contact-info h3 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+
+  .contact-info p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .contact-detail {
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+  }
+
+  .contact-detail span:first-child {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    min-width: 60px;
+  }
+
+  .contact-form {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 2px;
+    padding: 0.75rem 1rem;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(245,240,232,0.3); }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: rgba(201,169,110,0.5); }
+
+  .form-group select option { background: var(--navy-mid); }
+
+  .form-group textarea { resize: none; height: 110px; }
+
+  .form-submit {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    border: none;
+    font-family: var(--sans);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+
+  .form-submit:hover { background: var(--gold-light); }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid rgba(201,169,110,0.12);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(245,240,232,0.3);
+  }
+
+  .footer-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.7s ease both 0.1s; }
+  .hero h1      { animation: fadeUp 0.7s ease both 0.25s; }
+  .hero-sub     { animation: fadeUp 0.7s ease both 0.4s; }
+  .hero-actions { animation: fadeUp 0.7s ease both 0.55s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .section { padding: 4rem 1.5rem; }
+    .stats { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 1px solid rgba(201,169,110,0.12); }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .products-grid { grid-template-columns: 1fr; }
+    .markets-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .process-steps::before { display: none; }
+    .footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Meridian <span>Distributors</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#markets">Markets</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Trade enquiry</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">UK Premium Health Distribution</div>
+    <h1>Supplying the world's <em>finest</em> health brands</h1>
+    <p class="hero-sub">Meridian Distributors sources premium UK and European health supplement brands and delivers them to retailers, distributors, and wellness businesses across the UAE and GCC region.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request trade pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-number">15+</div>
+    <div class="stat-label">Premium brands</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">UAE & GCC</div>
+    <div class="stat-label">Distribution markets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">UK sourced</div>
+    <div class="stat-label">Guaranteed authenticity</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="section-tag">Who we are</div>
+    <h2 class="section-title">A trusted bridge between UK suppliers<br>and GCC buyers</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Meridian Distributors is a UK-based international trading company specialising in the sourcing and distribution of premium health supplement brands to the UAE and broader GCC region.</p>
+        <p>We work directly with authorised UK wholesalers to supply retailers, gyms, pharmacies, and online stores with brands their customers already know and trust — at competitive trade pricing with reliable, consistent supply.</p>
+        <p>Our model is straightforward: we bridge the gap between abundant, competitively-priced UK supply and high-demand GCC markets, offering buyers easy access to European health brands without the complexity of international procurement.</p>
+      </div>
+      <div class="about-features">
+        <div class="feature">
+          <div class="feature-title">Authentic UK sourcing</div>
+          <p>All products sourced directly from authorised UK wholesalers and brand distributors. Full traceability and documentation available on request.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-title">Flexible order quantities</div>
+          <p>We work with businesses at every stage — from independent gyms placing their first trial order to established distributors requiring container volumes.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-title">Fast, reliable logistics</div>
+          <p>Air freight for speed-sensitive orders, sea freight for volume. Fully tracked shipments with dedicated support from order to delivery.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETS -->
+<section class="section" id="markets">
+  <div class="section-inner">
+    <div class="section-tag">Markets served</div>
+    <h2 class="section-title">Delivering across the Gulf</h2>
+    <div class="markets-grid">
+      <div class="market-card">
+        <span class="market-flag">🇦🇪</span>
+        <h3>United Arab Emirates</h3>
+        <p>Our primary market. We supply gyms, independent health stores, pharmacies, online retailers, and wellness centres across Dubai, Abu Dhabi, Sharjah, and the Northern Emirates.</p>
+      </div>
+      <div class="market-card">
+        <span class="market-flag">🇸🇦</span>
+        <h3>Saudi Arabia</h3>
+        <p>A rapidly growing wellness market with strong appetite for European health brands. We supply distributors and retailers in Riyadh, Jeddah, and key commercial centres.</p>
+      </div>
+      <div class="market-card">
+        <span class="market-flag">🇶🇦</span>
+        <h3>Qatar & Kuwait</h3>
+        <p>Affluent markets with high per-capita health spend. We work with established local distributors to supply premium UK supplement brands to retail and wellness channels.</p>
+      </div>
+      <div class="market-card">
+        <span class="market-flag">🌍</span>
+        <h3>Other markets</h3>
+        <p>We supply buyers across Bahrain, Oman, and select markets beyond the GCC. If you're outside our primary coverage area, contact us to discuss your requirements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section products-bg">
+  <div class="section-inner">
+    <div class="section-tag">How it works</div>
+    <h2 class="section-title">Simple, transparent process</h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Enquiry</h4>
+        <p>Tell us what brands or products you're looking for, your quantities, and your location.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Quote</h4>
+        <p>We'll send you trade pricing, minimum order quantities, and estimated lead times within 24 hours.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Order</h4>
+        <p>Confirm your order and submit payment. We source your goods from authorised UK suppliers.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h4>Delivery</h4>
+        <p>Goods are shipped via air or sea freight with full tracking. Typical lead time 5–10 working days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-bg" id="contact">
+  <div class="section-inner">
+    <div class="section-tag">Get in touch</div>
+    <h2 class="section-title">Ready to start a trade account?</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>We'd love to hear from you</h3>
+        <p>Whether you're placing your first trial order or looking for a reliable long-term supply partner, we're here to help. Complete the form and we'll respond within one business day.</p>
+        <div class="contact-detail">
+          <span>Email</span>
+          <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f68284979293b69b93849f929f9798db929f8582849f948382998485d895999b">[email&#160;protected]</a></span>
+        </div>
+        <div class="contact-detail">
+          <span>WhatsApp</span>
+          <span>Available on request</span>
+        </div>
+        <div class="contact-detail">
+          <span>Based</span>
+          <span>United Kingdom</span>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full name</label>
+            <input type="text" name="name" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" name="company" placeholder="Your business">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="you@company.com">
+          </div>
+          <div class="form-group">
+            <label>Country</label>
+            <select name="country">
+              <option value="">Select country</option>
+              <option>United Arab Emirates</option>
+              <option>Saudi Arabia</option>
+              <option>Qatar</option>
+              <option>Kuwait</option>
+              <option>Bahrain</option>
+              <option>Oman</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Business type</label>
+          <select name="business_type">
+            <option value="">Select type</option>
+            <option>Gym / fitness club</option>
+            <option>Health food store</option>
+            <option>Pharmacy</option>
+            <option>Online retailer</option>
+            <option>Distributor</option>
+            <option>Hotel / spa</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" placeholder="Tell us about your requirements — brands, quantities, and any questions you have..."></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="submit-btn">Send enquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Meridian Distributors</div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#markets">Markets</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 Meridian Distributors Ltd. United Kingdom.</div>
+</footer>
+
+<!--
+  ========================================================
+  EMAIL SETUP — READ BEFORE GOING LIVE
+  ========================================================
+  This form uses EmailJS (free, no server needed).
+  Takes 5 minutes to set up:
+
+  1. Go to https://www.emailjs.com and create a free account
+  2. Add an Email Service: connect your Gmail or any email
+     (Services > Add New Service). Copy your SERVICE_ID.
+  3. Create an Email Template (Email Templates > Create New):
+     - Set "To Email" to: zayd@meridian-distributors.com
+     - In the template body use these variables:
+       {{from_name}}, {{from_company}}, {{from_email}},
+       {{country}}, {{business_type}}, {{message}}
+     Copy your TEMPLATE_ID.
+  4. Go to Account > API Keys. Copy your PUBLIC_KEY.
+  5. Replace the three placeholders below:
+       YOUR_PUBLIC_KEY
+       YOUR_SERVICE_ID
+       YOUR_TEMPLATE_ID
+  ========================================================
+-->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init('YOUR_PUBLIC_KEY');
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    const form = e.target;
+
+    const params = {
+      from_name:     form.querySelector('input[name="name"]').value,
+      from_company:  form.querySelector('input[name="company"]').value,
+      from_email:    form.querySelector('input[name="email"]').value,
+      country:       form.querySelector('select[name="country"]').value,
+      business_type: form.querySelector('select[name="business_type"]').value,
+      message:       form.querySelector('textarea[name="message"]').value,
+    };
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
+      .then(() => {
+        btn.textContent = 'Sent — we\'ll be in touch shortly';
+        btn.style.background = '#1D9E75';
+        btn.style.color = '#fff';
+      })
+      .catch(() => {
+        btn.textContent = 'Something went wrong — please email us directly';
+        btn.style.background = '#A32D2D';
+        btn.style.color = '#fff';
+        btn.disabled = false;
+      });
+  }
+
+  document.querySelectorAll('a[href^="#"]').f
